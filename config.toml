@@ -1,0 +1,4 @@
+baseURL = "https://zbeever.github.io/"
+languageCode = "en-us"
+title = "Zach Beever"
+theme = "ananke"
