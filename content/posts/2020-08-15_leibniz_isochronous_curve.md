@@ -2,7 +2,7 @@
 title: "A derivation of the Leibniz isochronous curve"
 date: 2020-08-15T12:43:36-04:00
 draft: false
-tags: ["mathematics", "physics", "variational-methods", "lagrangian"]
+tags: ["mechanics", "lagrangian"]
 ---
 
 Recently, a friend of mine shared with me the idea of the Leibniz isochronous curve.
