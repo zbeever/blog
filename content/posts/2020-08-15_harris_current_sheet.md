@@ -1,7 +1,7 @@
 ---
 title: "The evolving Harris current sheet model"
 date: 2020-08-15T12:57:55-04:00
-draft: true
+draft: false
 tags: ["space-physics", "electromagnetism"]
 ---
 
