@@ -3,6 +3,7 @@ title: "The evolving Harris current sheet model"
 date: 2020-08-15T12:57:55-04:00
 draft: false
 tags: ["space-physics", "electromagnetism"]
+math: true
 ---
 
 In many space physics papers investigating nonadiabatic current sheet scattering, the
@@ -14,6 +15,12 @@ where \\(L\\) parameterizes the current sheet thickness. This is nice approximat
 for a relatively static magnetosphere, but it doesn't capture a thinning current sheet.
 For that, we'll need to make the change \\(L=L(t)\\). In turn, this will induce an
 electric field. What is the expression for that field?
+
+*Prerequisites:*
+To understand this post you'll need to be familiar with Maxwell's equations. To understand the *motivation* of this post, familiarity with basic space plasma physics and the structure of the magnetosphere is necessary.
+
+*Recommended Reading:* [Basic Space Plasma Physics](https://www.worldscientific.com/worldscibooks/10.1142/p015) by Wolfgang Baumjohann and Rudolf Treumann. The Wikipedia page on [current sheets](https://en.wikipedia.org/wiki/Current_sheet).
+
 
 ### Deriving the induced electric field
 
@@ -58,7 +65,7 @@ $$C = \lim_{u\to{-\infty}}\ln\cosh u - u\tanh u.$$
 Since, by defintion, \\(\cosh u = \frac{e^u + e^{-u}}{2}\\) and \\(\tanh u = \frac{e^u - e^{-u}}{e^u + e^{-u}}\\), we can rewrite \\(C\\) as
 
 $$\begin{aligned}
-C &= \lim_{u\to{-\infty}}\ln\frac{e^{-u}}{2} + u\frac{e^{-u}}{e^{-u}} \\\ \\\ &= \lim_{u\to-\infty}-u + u - \ln 2 \\\ \\\ &= {-\ln 2}
+C &= \lim_{u\to{-\infty}}\ln\frac{e^{-u}}{2} + u\frac{e^{-u}}{e^{-u}} \\\ &= \lim_{u\to-\infty}-u + u - \ln 2 \\\ &= {-\ln 2}
 \end{aligned}$$
 
 The final expression for the induced field is given by
@@ -82,14 +89,14 @@ $$\nabla \times {\mathbf{A}} = \mathbf{B}.$$
 In component form, this is
 
 $$\begin{aligned}
-\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z} &= B_x\tanh\Big(\frac{z}{L(t)}\Big) \\\ \\\ \frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x} &= 0 \\\ \\\ \frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y} &= B_z
+\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z} &= B_x\tanh\Big(\frac{z}{L(t)}\Big) \\\ \frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x} &= 0 \\\ \frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y} &= B_z
 \end{aligned}$$
 
 By the same argument as in the last section, \\(\mathbf{A}\\) must be independent of \\(y\\),
 and so these further reduce to
 
 $$\begin{aligned}
-\frac{\partial A_y}{\partial z} &= -B_x\tanh\Big(\frac{z}{L(t)}\Big) \\\ \\\ \frac{\partial A_y}{\partial x} &= B_z 
+\frac{\partial A_y}{\partial z} &= -B_x\tanh\Big(\frac{z}{L(t)}\Big) \\\ \frac{\partial A_y}{\partial x} &= B_z 
 \end{aligned}$$
 
 Integrating gives
@@ -110,13 +117,13 @@ the gradient of a function is orthogonal to the level sets of that function, \\(
 must be directed along the intersection of the two implicit surfaces described by
 
 $$\begin{aligned}
-\alpha(x, y, z) &= \alpha_0 \\\ \\\ \beta(x, y, z) &= \beta_0
+\alpha(x, y, z) &= \alpha_0 \\\ \beta(x, y, z) &= \beta_0
 \end{aligned}$$
 
 In the simple case of the Harris model, we can write these scalar functions by inspection,
 
 $$\begin{aligned}
-\alpha(x, z) &= -B_xL(t)\ln\cosh\Big(\frac{z}{L(t)}\Big) + B_zx \\\ \\\ \beta(y) &= y
+\alpha(x, z) &= -B_xL(t)\ln\cosh\Big(\frac{z}{L(t)}\Big) + B_zx \\\ \beta(y) &= y
 \end{aligned}$$
 
 Of course, these are not unique: we could add a constant to \\(\alpha\\) or any term \\(g\\)
@@ -125,7 +132,7 @@ In any case, for the surfaces described by \\(\alpha = \alpha_0\\) and \\(\beta 
 field lines are given by
 
 $$\begin{aligned}
-x &= \frac{\alpha_0}{B_z} + \frac{B_x}{B_z}L(t)\ln\cosh\Big(\frac{z}{L(t)}\Big) \\\ \\\ y &= \beta_0
+x &= \frac{\alpha_0}{B_z} + \frac{B_x}{B_z}L(t)\ln\cosh\Big(\frac{z}{L(t)}\Big) \\\ y &= \beta_0
 \end{aligned}$$
 
 ### Forced mirroring
@@ -133,7 +140,7 @@ x &= \frac{\alpha_0}{B_z} + \frac{B_x}{B_z}L(t)\ln\cosh\Big(\frac{z}{L(t)}\Big) 
 When the above model is used in a single particle simulation, there are only two qualitatively
 distinct trajectories: those that become trapped in the current sheet and those that exit. In the 
 magnetosphere, particles that exit from the current sheet have the chance to return for another
-interaction --- provided they have not been scattered into the loss cone. To simulate multiple
+interaction---provided they have not been scattered into the loss cone. To simulate multiple
 current sheet crossings, we can strengthen the magnetic field far from the \\(x\\)-\\(y\\) plane
 to force particle mirroring.[^nonadiabatic-results]
 
@@ -156,13 +163,13 @@ $$\mathbf{A}(x, z, t) =  \Big[{-B_xL(t)}\ln\cosh\Big(\frac{z}{L(t)}\Big) - B_\la
 and so the obvious choices for the Euler potentials are
 
 $$\begin{aligned}
-\alpha(x, z) &= -B_xL(t)\ln\cosh\Big(\frac{z}{L(t)}\Big) - B_\lambda R_E e^{-\lambda}\cosh\Big(\frac{z}{R_E}\Big) + B_zx \\\ \\\ \beta(y) &= y
+\alpha(x, z) &= -B_xL(t)\ln\cosh\Big(\frac{z}{L(t)}\Big) - B_\lambda R_E e^{-\lambda}\cosh\Big(\frac{z}{R_E}\Big) + B_zx \\\ \beta(y) &= y
 \end{aligned}$$
 
 The field lines are then described by
 
 $$\begin{aligned}
-x &= \frac{\alpha_0}{B_z} + \frac{B_x}{B_z}L(t)\ln\cosh\Big(\frac{z}{L(t)}\Big) + \frac{B_x}{B_\lambda}R_E e^{-\lambda}\cosh\Big(\frac{z}{R_E}\Big) \\\ \\\ y &= \beta_0
+x &= \frac{\alpha_0}{B_z} + \frac{B_x}{B_z}L(t)\ln\cosh\Big(\frac{z}{L(t)}\Big) + \frac{B_x}{B_\lambda}R_E e^{-\lambda}\cosh\Big(\frac{z}{R_E}\Big) \\\ y &= \beta_0
 \end{aligned}$$
 
 [^limits]: The limits of integration are chosen so that the entire field contributes to \\(E_y\\) at the given \\(z\\). We arrive at the same result whether we set the lower limit to \\(\infty\\) or \\(-\infty\\).

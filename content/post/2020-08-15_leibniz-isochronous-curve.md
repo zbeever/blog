@@ -3,9 +3,10 @@ title: "A derivation of the Leibniz isochronous curve"
 date: 2020-08-15T12:43:36-04:00
 draft: false
 tags: ["mechanics", "lagrangian"]
+math: true
 ---
 
-Recently, a friend of mine shared with me the idea of the Leibniz isochronous curve.
+Recently, a [friend of mine](https://horenbergerb.github.io/) shared with me the idea of the Leibniz isochronous curve.
 In words, this is the trajectory a frictionless object would follow if its vertical
 velocity was left unchanged by a constant, downward force. Using the standard
 \\(x\\)-\\(y\\) Cartesian axes, the curve is parameterized by
@@ -13,6 +14,12 @@ velocity was left unchanged by a constant, downward force. Using the standard
 $$\begin{aligned}x &= x(t)\\\y &= -v_0t\end{aligned}$$
 
 where \\(v_0\\) is positive. What is the exact expression for \\(x(t)\\)?
+
+*Prerequisites:* To understand this post you'll need to be comfortable with the Lagrangian formulation of classical mechanics.
+
+*Recommended Reading:* [The Variational Principles of Mechanics](https://archive.org/details/VariationalPrinciplesOfMechanicsLanczos) by Cornelius Lanczos. [The Theoretical Minimum](https://theoreticalminimum.com/references) by George Hrabovsky and Leonard Susskind. The Wikipedia page on [Lagrangian Mechanics](https://en.wikipedia.org/wiki/Lagrangian_mechanics).
+
+### The derivation
 
 The Lagrangian approach is usually emphasized when there are obvious constraints,
 so let's try that method here. Lets assume the trajectory can be written

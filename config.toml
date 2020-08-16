@@ -1,7 +1,70 @@
 baseURL = "https://zbeever.github.io/"
-languageCode = "en-us"
+languageCode = "en"
+DefaultContentLanguage = "en"
 title = "Zach Beever"
-theme = "hugo-theme-minos"
+theme = "anatole"
+summarylength = 100
+enableEmoji = true
+enableRobotsTXT = true
+
+# Enable Disqus
+#disqusShortname = ""
+
+# Google Analytics
+#googleAnalytics = ""
 
 [params]
-    katex = true
+title = "Zach Beever"
+author = "Zach Beever"
+description = "MS Electrical Engineering Student at Boston University"
+profilePicture = "images/profile.png"
+keywords = ""
+favicon = "favicons/"
+customCss = []
+customJs = []
+mainSections = ["post"]
+#images = ["images/site-feature-image.png"]
+
+## Math settings
+[params.math]
+math = true
+enable = true
+use = "katex"  # options: "katex", "mathjax". default is "katex".
+
+## Social links
+[[params.socialIcons]]
+icon = "fa-linkedin"
+title = "Linkedin"
+url = "https://www.linkedin.com/in/zach-beever/"
+
+[[params.socialIcons]]
+icon = "fa-github"
+title = "GitHub"
+url = "https://github.com/zbeever/"
+
+[[params.socialIcons]]
+icon = "fa-envelope"
+title = "e-mail"
+url = "mailto:zbeever@bu.edu"
+
+## Menu items
+
+[menu]
+
+  [[menu.main]]
+  name = "Home"
+  identifier = "home"
+  weight = 100
+  url = "/"
+
+  [[menu.main]]
+  name = "Posts"
+  weight = 200
+  identifier = "posts"
+  url = "/post/"
+
+  [[menu.main]]
+  name = "About"
+  weight = 300
+  identifier = "about"
+  url = "/about/"

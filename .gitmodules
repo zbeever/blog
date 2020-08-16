@@ -2,6 +2,6 @@
 	path = public
 	url = https://github.com/zbeever/zbeever.github.io.git
 	branch = master
-[submodule "themes/hugo-theme-minos"]
-	path = themes/hugo-theme-minos
-	url = https://github.com/carsonip/hugo-theme-minos
+[submodule "themes/anatole"]
+	path = themes/anatole
+	url = https://github.com/lxndrblz/anatole.git
