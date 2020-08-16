@@ -3,11 +3,10 @@ title: "The evolving Harris current sheet model"
 date: 2020-08-15T12:57:55-04:00
 draft: false
 tags: ["space-physics", "electromagnetism"]
-math: true
 ---
 
 In many space physics papers investigating nonadiabatic current sheet scattering, the
-simplified Harris model is used. In Cartesian coordinates, it takes on the simple form
+simplified Harris model is used. In Cartesian coordinates, it takes on the form
 
 $$\mathbf{B} = B_x\tanh\Big(\frac{z}{L}\Big)\hat{\mathbf{i}} + 0\hat{\mathbf{j}} + B_z\hat{\mathbf{k}}$$
 

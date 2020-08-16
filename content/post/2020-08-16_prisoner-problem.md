@@ -1,10 +1,10 @@
 +++
 title = "The prisoner problem (no, not that one)"
-date = 2020-08-15T23:15:31-04:00
+date = 2020-08-16T05:15:31-04:00
 images = []
 tags = ["mathematics"]
 categories = []
-draft = true
+draft = false
 +++
 
 During her Master's program, my girlfriend signed up for a Putnam Competition preparation course.
@@ -39,7 +39,8 @@ you realize you can't rely on any particular ordering of the prisoners. There's 
 Let's forget about what any particular prisoner can calculate and instead look at invariant quantities,
 i.e. those quantities that are fixed for a given game.
 
-Labeling each number \\(n_i\\), where \\(i \in \lbrace1, 2, \dots, N\rbrace\\), the two obvious invariant quantities are
+Labeling each number \\(n_i\\), where \\(i \in \lbrace1, 2, \dots, N\rbrace\\), the two obvious invariant
+quantities are
 
 $$S = \sum_{i=1}^N n_i$$
 
@@ -47,14 +48,46 @@ and
 
 $$P = \prod_{i=1}^N n_i$$
 
-The first is simpler than the second, so let's focus on it and play around. The sum of all prisoners' numbers is nice,
-but prisoner \\(i\\) doesn't have access to it. The next best thing---which is all prisoner \\(i\\) has access to---is
+The first is simpler than the second, so let's focus on it and play around. The sum of all prisoners'
+numbers is nice, but prisoner \\(i\\) doesn't have access to it. The next best thing---which is all
+prisoner \\(i\\) has access to---is
 
 $$S_i = S - n_i$$
 
-i.e. the sum of all numbers minus their own. We'd like to turn this into a guess of some number between \\(1\\) and \\(N\\).
-An easy way to do this is with modular arithmetic, so let's investigate
+i.e. the sum of all numbers minus their own. We'd like to turn this into a guess of some number
+between \\(1\\) and \\(N\\). An easy way to do this is with modular arithmetic, so let's investigate
 
-$$S - n_i\mod N$$
+$$S - n_i\pmod{N}$$
 
-Clearly \\(n_i\\) will be unaffected by this operation unless \\(n_i = N\\), in which case \\(n_i\mod N = 0\\). On the other hand, \\(S\\) will always be affected, and moreover \\(S\mod N\\) will take on the *same value for every prisoner.*
+Clearly \\(n_i\\) will be unaffected by this operation unless \\(n_i = N\\), in which case
+\\(n_i = 0 \pmod{N}\\). On the other hand, \\(S\\) will always be affected, and moreover \\(S\pmod{N}\\)
+will take on the same value for every prisoner. Here's the key insight: if we make any one-to-one mapping
+from \\(\lbrace 1, 2, \dots, N \rbrace\\) to the prisoners (e.g. have them form a line and remember
+their place), we can use their newly assigned number \\(l_i\\) to cancel \\(S\pmod{N}\\), leaving
+only \\(n_i = n_i \pmod{N}\\) in its place! That is, prisoner \\(i\\) writes down
+
+$$l_i - (S - n_i) \mod N$$
+
+for their guess, with the special case of \\(0\\) being interpreted as \\(N\\). This works because
+\\(S \pmod{N}\\) is between \\(0\\) and \\(N - 1\\), inclusive. The prisoner \\(i\\) whose assigned
+number is \\(l_i = S \pmod{N}\\) (and there will be such a prisoner) is actually evaluating \\(n_i\pmod{N}\\).
+
+Try this for yourself. If you've got Numpy installed, the following code runs a simulation of the game with \\(N\\) prisoners.
+
+{{< highlight python "linenos=table, linenostart=1" >}}
+import numpy as np
+
+N = 10
+
+prisoner_numbers = np.random.default_rng().integers(0, N, N) + 1
+line_numbers     = np.arange(1, N + 1)
+
+S      = np.sum(prisoner_numbers)
+S_i    = S - prisoner_numbers
+mod_op = np.mod(line_numbers - S_i, N)
+guess  = np.where(mod_op == 0, N, mod_op)
+
+correct_guess = np.argwhere(guess == prisoner_numbers)[0, 0]
+
+print(f'Prisoner {correct_guess + 1} correctly guessed their number. S: {S}, S_i: {S_i[correct_guess]}, l_i: {line_numbers[correct_guess]}, n_i: {prisoner_numbers[correct_guess]}')
+{{< / highlight >}}
