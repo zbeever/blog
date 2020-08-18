@@ -1,11 +1,11 @@
-+++
-title = "The prisoner problem (no, not that one)"
-date = 2020-08-16T05:15:31-04:00
-images = []
-tags = ["mathematics"]
-categories = []
-draft = false
-+++
+---
+title: "The prisoner problem (no, not that one)"
+date: 2020-08-16T05:15:31-04:00
+Description: ""
+Tags: ["mathematics"]
+Categories: []
+DisableComments: false
+---
 
 During her Master's program, my girlfriend signed up for a Putnam Competition preparation course.
 She doesn't have a background in math, but she thought it would be fun---and it was! There were

@@ -1,8 +1,10 @@
 ---
 title: "The evolving Harris current sheet model"
 date: 2020-08-15T12:57:55-04:00
-draft: false
-tags: ["space-physics", "electromagnetism"]
+Description: ""
+Tags: ["space-physics", "electromagnetism"]
+Categories: []
+DisableComments: false
 ---
 
 In many space physics papers investigating nonadiabatic current sheet scattering, the
