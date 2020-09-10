@@ -45,7 +45,7 @@ for at least one nonzero \\(\alpha_i\\). This would contradict the assumption th
 
 An immediate consequence of this is that all linearly independent sets that span the same vector space \\(V\\) contain the same number of elements. We call such a set a basis.
 
-### The relationship between determinant, trace, and eigenvalues
+### On eigenvalues
 
 **Lemma**: *The determinant of a matrix is given by the product of its eigenvalues.*
 
@@ -85,6 +85,18 @@ but by the above observation this is the same as
 $$\mathrm{Tr}(\mathbf{A}\mathbf{P}^{-1}\mathbf{P}) = \mathrm{Tr}(\mathbf{A})$$
 
 and the lemma is proved. \\(\square\\)
+
+**Lemma**: Given an \\(n \times n\\) matrix \\(\mathbf{A}\\) with a complete and distinct set of eigenvalues \\(s_i\\), the associated eigenvectors \\(\mathbf{e}_i\\) form a linearly independent set.
+
+Assume the set of eigenvectors is linearly dependent. Then at least one eigenvector \\(\mathbf{e}_j\\) can be expressed as a linear combination of the \\(n - 1\\) remaining eigenvectors. Explicitly, this means
+
+$$\mathbf{A}\mathbf{e}\_j = \mathbf{A}\sum_{k\neq j} \alpha_k \mathbf{e}\_k = \sum_{k\neq j}s_k\alpha_k\mathbf{e}\_k.$$
+
+Simultaneously, by the nature of eigenvectors, we also have
+
+$$\mathbf{A}\mathbf{e}\_j = s_j\mathbf{e}\_j = s_j\sum_{k\neq j}\alpha_k\mathbf{e}\_k.$$
+
+In order for these two expression to be equal, \\(s_k = s_j\\) for all \\(k \neq j\\). This contradicts the assumption that the eigenvalues \\(s_i\\) are distinct, proving the lemma. \\(\square\\)
 
 [^labeling]: All of these 're-expressions' involve possible relabellings. That is, the \\(u_i\\)s and \\(\beta_i\\)s in one step need not be the same \\(u_i\\)s and \\(\beta_i\\)s in the next.
 
