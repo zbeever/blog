@@ -23,7 +23,7 @@ where \\(v_0\\) is positive. What is the exact expression for \\(x(t)\\)?
 ### The derivation
 
 The Lagrangian approach is usually emphasized when there are obvious constraints,
-so let's try that method here. Lets assume the trajectory can be written
+so let's try that method here. Let's assume the trajectory can be written
 \\(x = x(y(t))\\).
 
 Using the usual \\(\mathcal{L} = T - V\\) for a point mass under the influence of gravity, we have

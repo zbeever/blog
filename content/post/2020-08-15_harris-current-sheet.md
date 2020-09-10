@@ -157,7 +157,7 @@ Through testing, \\(\lambda \approx 40\\) and \\(\gamma = 1 \\) yield decent res
 around \\(z \approx \pm 20 R_E\\).
 	
 While this modification leaves the current sheet unchanged, the field lines far from the \\(x\\)-\\(y\\)
-plane experience a large deformation. The vector potential becomes
+plane experience a large deformation. With \\(\gamma = 1\\), the vector potential becomes
 
 $$\mathbf{A}(x, z, t) =  \Big[{-B_xL(t)}\ln\cosh\Big(\frac{z}{L(t)}\Big) - B_\lambda R_E e^{-\lambda}\cosh\Big(\frac{z}{R_E}\Big) + B_zx\Big]\hat{\mathbf{j}}$$
 

@@ -11,7 +11,8 @@ If you've spent time with analytical mechanics, you've probably stumbled upon th
 a symplectic manifold. In particular, you've probably heard how Hamiltonian mechanics is naturally
 described by a symplectic manifold. Unfortunately, many sources explaining why this is so are
 opaque to the uninitiated or painfully slow to get to the point. I'll try to outline the geometric
- picture of mechanics using a combination of qualitative and quantitative arguments.
+ picture of mechanics using a combination of qualitative and quantitative arguments. This borrows quite a bit from
+ Henry Cohn's [note on the topic](https://math.mit.edu/~cohn/Thoughts/symplectic.html), so I recommend you check it out.
 
 *Prerequisites:* To understand this post, you should be comfortable with differential geometry
 and its two most popular notations: indicial notation and coordinate-free notation. You should
@@ -128,7 +129,7 @@ $$ \Omega = \sum_{\alpha=1}^M\frac{\partial}{\partial z^{\alpha}} \otimes\frac{\
 
 or, in component form,
 
-$$ (\omega^{-1})^{ij} = \begin{pmatrix}0 & -I_M \\\ I_M & 0 \end{pmatrix}$$
+$$ \Omega^{ij} = \begin{pmatrix}0 & -I_M \\\ I_M & 0 \end{pmatrix}$$
 
 which immediately implies the component form of \\(\omega\\) is the same. The more common notation is
 
